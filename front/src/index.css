@@ -662,3 +662,11 @@
   text-transform: capitalize;
   background-color: #eee;
 }
+
+@media screen and (max-width: 425px) {
+  .top-left,
+  .top-right,
+  .sidebar {
+    display: none;
+  }
+}

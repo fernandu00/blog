@@ -27,13 +27,13 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="sidebar-item">
         <span className="sidebar-title">about me</span>
-        {loggedUser && (
+        {/* {loggedUser && (
           <img
             className="about-me"
             src={PF + loggedUser.profilePic}
             alt="about"
           />
-        )}
+        )} */}
 
         <p className="about-text">{about && about}</p>
       </div>

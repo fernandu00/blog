@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  FaFacebookSquare,
+  FaLinkedin,
   FaTwitterSquare,
   FaInstagramSquare,
   FaSearch,
+  FaGithubSquare,
 } from "react-icons/fa";
 import { useGlobalContext } from "./context";
-
-const PF = "http://localhost:5000/images/";
 
 const Topbar = () => {
   const { auth, setAuth, loggedUser, setLoggedUser, navigate, base_url } =
@@ -21,12 +20,21 @@ const Topbar = () => {
     navigate("/home");
   };
 
+  const PF = `${base_url}/images/`;
   return (
     <nav className="top-bar">
       <div className="top-left">
-        <FaFacebookSquare className="icon" />
-        <FaTwitterSquare className="icon" />
-        <FaInstagramSquare className="icon" />
+        <a href="https://www.linkedin.com/in/fernando-de-paula-alves-profile/">
+          <FaLinkedin className="icon" />
+        </a>
+
+        <a href="https://github.com/fernandu00">
+          <FaGithubSquare className="icon" />
+        </a>
+
+        <a href="https://twitter.com/fernandu00">
+          <FaTwitterSquare className="icon" />
+        </a>
       </div>
 
       <div className="top-center">
@@ -49,11 +57,11 @@ const Topbar = () => {
       <div className="top-right">
         {auth && loggedUser ? (
           <>
-            <img
+            {/* <img
               className="profile-pic"
               src={PF + loggedUser.profilePic}
               alt={loggedUser.username}
-            />
+            /> */}
             <Link className="list-item" to="/settings">
               {loggedUser.username}
             </Link>
