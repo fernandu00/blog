@@ -26,14 +26,16 @@ const SettingsPage = () => {
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      updateUser.profilePic = filename;
 
       try {
-        await axios.post("http://localhost:5000/uploads", data, {
+        const pic = await axios.post(`${base_url}/uploads`, data, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
+        if (pic.data.success) {
+          updateUser.profilePic = pic.data.url;
+        }
       } catch (error) {
         console.log(error);
       }
@@ -44,7 +46,6 @@ const SettingsPage = () => {
         updateUser
       );
       setSuccess(true);
-      console.log(user);
     } catch (error) {
       console.log(error);
     }
@@ -78,7 +79,7 @@ const SettingsPage = () => {
           ) : (
             <img
               className="profile-pic-settings"
-              src={PF + loggedUser.profilePic}
+              src={loggedUser.profilePic}
               alt="profile-pic"
             />
           )}

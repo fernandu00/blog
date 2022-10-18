@@ -20,7 +20,6 @@ const Topbar = () => {
     navigate("/home");
   };
 
-  const PF = `${base_url}/images/`;
   return (
     <nav className="top-bar">
       <div className="top-left">
@@ -57,11 +56,11 @@ const Topbar = () => {
       <div className="top-right">
         {auth && loggedUser ? (
           <>
-            {/* <img
+            <img
               className="profile-pic"
-              src={PF + loggedUser.profilePic}
+              src={loggedUser.profilePic}
               alt={loggedUser.username}
-            /> */}
+            />
             <Link className="list-item" to="/settings">
               {loggedUser.username}
             </Link>

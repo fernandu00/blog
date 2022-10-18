@@ -52,7 +52,7 @@ const SinglePost = () => {
         {currentPost.photo && (
           <img
             className="single-post-img"
-            src={PF + currentPost.photo}
+            src={currentPost.photo}
             alt="post-img"
           />
         )}

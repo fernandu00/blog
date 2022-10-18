@@ -5,7 +5,9 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const AppContext = React.createContext();
 
-const base_url = "https://fernandu00-blog.herokuapp.com";
+// const base_url = "https://fernandu00-blog.herokuapp.com";
+
+const base_url = "http://localhost:5000";
 
 const AppProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);

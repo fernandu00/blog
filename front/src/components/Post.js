@@ -10,7 +10,7 @@ const Post = ({ post }) => {
   return (
     <article className="post">
       {post.photo && (
-        <img className="post-img" src={PF + post.photo} alt="post-img" />
+        <img className="post-img" src={post.photo} alt="post-img" />
       )}
 
       <div className="post-info">

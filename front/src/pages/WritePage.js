@@ -41,14 +41,17 @@ const WritePage = () => {
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      newPost.photo = filename;
 
       try {
-        await axios.post(`${base_url}/uploads`, data, {
+        const img = await axios.post(`${base_url}/uploads`, data, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
+        console.log(img);
+        if (img.data.success) {
+          newPost.photo = img.data.url;
+        }
       } catch (error) {
         console.log(error);
       }

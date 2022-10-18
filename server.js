@@ -10,16 +10,16 @@ const userRouter = require("./routes/userRoutes");
 const multer = require("multer");
 const path = require("path");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, req.body.name);
+//   },
+// });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(express.json());
 app.use(cors());
@@ -28,8 +28,14 @@ app.use("/posts", postRouter);
 app.use("/cat", catRouter);
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-app.post("/uploads", upload.single("file"), (req, res) => {
-  res.status(200).json({ success: true, msg: "file has been uploaded" });
+const uploadImage = require("./config/firebase-upload-image");
+
+app.post("/uploads", upload.single("file"), uploadImage, (req, res) => {
+  res.status(200).json({
+    success: true,
+    msg: "file has been uploaded",
+    url: req.file.firebaseUrl,
+  });
 });
 
 mongoose.connect(process.env.MONGO_URI, () => console.log("connected to DB"));

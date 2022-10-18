@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  FaFacebookSquare,
-  FaTwitterSquare,
-  FaInstagramSquare,
-} from "react-icons/fa";
+import { FaTwitterSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import axios from "axios";
 import { useGlobalContext } from "./context";
 const Sidebar = () => {
@@ -27,13 +23,9 @@ const Sidebar = () => {
     <aside className="sidebar">
       <div className="sidebar-item">
         <span className="sidebar-title">about me</span>
-        {/* {loggedUser && (
-          <img
-            className="about-me"
-            src={PF + loggedUser.profilePic}
-            alt="about"
-          />
-        )} */}
+        {loggedUser && (
+          <img className="about-me" src={loggedUser.profilePic} alt="about" />
+        )}
 
         <p className="about-text">{about && about}</p>
       </div>
@@ -56,9 +48,17 @@ const Sidebar = () => {
       <div className="sidebar-item">
         <span className="sidebar-title">follow us</span>
         <div className="sibebar-social">
-          <FaFacebookSquare className="icon" />
-          <FaTwitterSquare className="icon" />
-          <FaInstagramSquare className="icon" />
+          <a href="https://www.linkedin.com/in/fernando-de-paula-alves-profile/">
+            <FaLinkedin className="icon" />
+          </a>
+
+          <a href="https://github.com/fernandu00">
+            <FaGithubSquare className="icon" />
+          </a>
+
+          <a href="https://twitter.com/fernandu00">
+            <FaTwitterSquare className="icon" />
+          </a>
         </div>
       </div>
     </aside>
