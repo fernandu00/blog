@@ -5,9 +5,9 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const AppContext = React.createContext();
 
-// const base_url = "https://fernandu00-blog.herokuapp.com";
+const base_url = "https://fernandu00-blog.herokuapp.com";
 
-const base_url = "http://localhost:5000";
+// const base_url = "http://localhost:5000";
 
 const AppProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
@@ -27,7 +27,7 @@ const AppProvider = ({ children }) => {
     setAuth(true);
     localStorage.setItem("auth", JSON.stringify(auth));
     setLoading(false);
-  }, []);
+  }, [auth]);
 
   // get filtered posts
   const getFilteredPosts = async (input, filter) => {

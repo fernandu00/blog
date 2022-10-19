@@ -669,4 +669,55 @@
   .sidebar {
     display: none;
   }
+  .top-bar * {
+    font-size: 1rem;
+  }
+  .register,
+  .login {
+    font-size: 1rem;
+  }
+  .register-form h1,
+  .login-form h1 {
+    font-size: 1.5rem;
+  }
+  .register-form input,
+  .login-form input {
+    font-size: 1rem;
+  }
+  .submit-btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .header-title-sm {
+    font-size: 1.5rem;
+  }
+  .header-title-lg {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 769px) {
+  .top-left,
+  .top-right,
+  .sidebar {
+    display: none;
+  }
+
+  .register,
+  .login {
+    font-size: 1.25rem;
+  }
+  .register-form h1,
+  .login-form h1 {
+    font-size: 1.75rem;
+  }
+  .register-form input,
+  .login-form input {
+    font-size: 1.25rem;
+  }
+  .submit-btn {
+    font-size: 1.25rem;
+    padding: 0.75rem;
+  }
 }
